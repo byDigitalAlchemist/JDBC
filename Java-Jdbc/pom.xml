@@ -6,7 +6,7 @@
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
   <modules>
-    <module>Jdbc-Basic</module>
+  <module>Java-Jdbc-basic</module>
   </modules>
   
 </project>

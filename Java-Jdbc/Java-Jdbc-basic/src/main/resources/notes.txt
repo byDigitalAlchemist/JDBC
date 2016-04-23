@@ -1,0 +1,55 @@
+Statement	Use the for general-purpose access to your database. Useful when you are using static SQL statements at runtime. The Statement interface cannot accept parameters.
+
+PreparedStatement	Use the when you plan to use the SQL statements many times. The PreparedStatement interface accepts input parameters at runtime.
+Extends Statement, In most cases it is more efficient (in the context of multiple executions) to use the PreparedStatement because the SQL statement that is sent gets pre-compiled (i.e. a query plan is prepared) in the DBMS. Furthermore, we can use PreparedStatement to safely provide values to the SQL parameters, through a range of setter methods (i.e. setInt(int,int), setString(int,String), etc.).
+
+	a- Prepared statements are pre-compiled sql statements
+		- Prevent Sql injection
+		- May improve application performance since point(a)
+		- Makes it easier to set Sql parameter values
+		
+
+CallableStatement	Use the when you want to access the database stored procedures. The CallableStatement interface can also accept runtime input parameters.
+Extends PreparedStatement, This interface is used for executing the SQL stored procedures. One particular advantage of using CallableStatement is that it adds a level of abstraction, so the execution of stored procedures does not have to be DBMS-specific.
+However, it should be noted that the output parameters need to be explicitly defined through the corresponding registerOutParameter() methods; whereas the input parameters are provided in the same manner as with the PreparedStatement.
+
+
+Types of Parameters in SP
+
+1- IN Parameters
+2- INOUT Parameters
+3- OUT Parameters
+4- return a RESULT set
+
+JDBC API supports different parameters
+
+- IN (default)
+- INOUT 
+- OUT
+
+-- http://stackoverflow.com/questions/2666286/is-definer-required-when-creating-a-stored-procedure
+
+Why do we use DEFINER in Stored Procs Statement
+
+The DEFINER clause determines the security context to be used when checking access privileges at
+trigger activation time. More detail is given later in this section." So when 
+I make sure, procedures are used only by privileged users, 
+I can totally remove whole definer things
+
+
+--
+http://tutorials.jenkov.com/jdbc/batchupdate.html
+
+--
+http://info.michael-simons.eu/2012/07/24/how-to-retrieve-tables-of-custom-object-types-with-jdbc/
+
+--
+ if you're on Java 7 already, just make use of try-with-resources statement which will auto-close those resources:
+ 
+ 
+ --
+ 
+ BLOBS (Binary Large Objects)
+ 
+ Blobs are typically documents, images, audio or other binary objects.
+ Database support for BLOBS are not universal
