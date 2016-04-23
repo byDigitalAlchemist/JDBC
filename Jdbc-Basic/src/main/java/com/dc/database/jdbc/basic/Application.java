@@ -21,7 +21,7 @@ public class Application {
 		
 		try {
 			// 1. Get a connection to database
-			myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/rockstardb", "root", "webmaster.ubit");
+			myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/rockstardb", "root", "*****");
 
 			System.out.println("Database connection successful!\n");
 
