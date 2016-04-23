@@ -1,19 +1,32 @@
 package com.dc.database.jdbc.basic;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Properties;
 
 /**
  * Hello world!
  *
  */
 public class Application {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws FileNotFoundException, IOException {
 
-		Connection myConn = null;
+		Properties properties = new Properties();
+		properties.load(new FileInputStream("dbconfig.properties"));
+		
+		
+		String strDbUrl  = properties.getProperty("dburl");
+		String strUsername  = properties.getProperty("username");
+		String strPassword  = properties.getProperty("password");
+		
+		
+		Connection myConn = null;	
 		Statement myStmt = null;
 		ResultSet myRs = null;
 
@@ -21,7 +34,7 @@ public class Application {
 		
 		try {
 			// 1. Get a connection to database
-			myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/rockstardb", "root", "*****");
+			myConn = DriverManager.getConnection(strDbUrl,strUsername, strPassword);
 
 			System.out.println("Database connection successful!\n");
 
