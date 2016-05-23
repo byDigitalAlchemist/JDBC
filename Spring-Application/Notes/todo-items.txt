@@ -1,0 +1,8 @@
+
+Batch Insert, Update, Delete, Select
+
+ORM vs JDBC
+
+Rebalance Execution with ORM and JDBC
+Rebalance Execution with ORM and JDBC in threads
+

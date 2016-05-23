@@ -1,0 +1,6 @@
+Shutdown Hook 
+	http://docs.spring.io/spring/docs/3.0.x/spring-framework-reference/html/beans.html#beans-factory-shutdown
+
+
+Run mvn dependency:tree on your project, try to match the spring version with the spring artifacts included in Spring Jpa Data 
+	
